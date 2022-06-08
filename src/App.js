@@ -1,11 +1,22 @@
-import expenses from "./components/ExpenseItem/expenses";
+import React, { useState } from "react";
+
+import DUMMY_EXPENSES from "./components/Expenses/ExpenseItem/expenses";
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/Forms/NewExpense";
 
 function App() {
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
+  };
+
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <Expenses data={expenses} />
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses items={expenses} />
     </div>
   );
 }
