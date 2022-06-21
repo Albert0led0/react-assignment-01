@@ -40,7 +40,7 @@ const SimpleInput = (props) => {
     setEnteredEmailTouched(true);
 
     if (!enteredNameIsValid) {
-      setEnteredName("");
+      setEnteredEmail("");
     }
   };
 
